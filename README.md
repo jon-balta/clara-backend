@@ -1,6 +1,6 @@
-# Clara — API de acompanhamento de interessados
+# Clara — Acompanhamento de interessados
 
-MVP de Desenvolvimento Full Stack Básico: a recepção registra interessados, acompanha etapas e define o próximo retorno. Marca e exemplos fictícios, inspirados em necessidades de atendimento de um negócio de bem-estar.
+MVP de Desenvolvimento Full Stack Básico:  Software desenvolvido para que uma recepção de uma clínica fictícia possa registrar clientes interessados, acompanha etapas e definir o próximo retorno. Marca e exemplos fictícios, inspirados em necessidades de atendimento de um negócio de bem-estar.
 
 ## Executar localmente
 
