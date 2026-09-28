@@ -75,8 +75,6 @@ POST e PUT recebem JSON. Exemplo:
 }
 ```
 
-No Swagger, use **Try it out → Execute**. Para consultar/editar/excluir, use o ID devolvido pelo cadastro, sem presumir que seja 1.
-
 ### Regras
 
 - Nome: 2–100 caracteres; serviço: 2–80; ambos removem espaços das extremidades.
@@ -92,7 +90,7 @@ No Swagger, use **Try it out → Execute**. Para consultar/editar/excluir, use o
 
 ## Organização
 
-- `app.py`: fábrica Flask, rotas, persistência SQLite e carga fictícia.
+- `app.py`: Flask, rotas, persistência SQLite e carga fictícia.
 - `domain.py`: validação e opções do domínio.
 - `openapi.py`: contrato usado pelo Swagger.
 - `tests/test_api.py`: testes com arquivos SQLite temporários.
@@ -109,18 +107,3 @@ python -m pytest -q
 Se criou o ambiente pela alternativa sem uv, use `python -m pip install -r requirements-dev.txt` para instalar as dependências de teste.
 
 Os testes usam banco temporário e não alteram a demonstração. Cobrem CRUD, persistência entre instâncias, entradas inválidas, atualização rejeitada, registro inexistente, CORS, documentação e proteção contra carga duplicada.
-
-## Escopo e referência
-
-Aplicação acadêmica local, sem autenticação, prontuário, envio de mensagens ou integração com sistemas de clientes. O frontend está preparado separadamente para sua própria entrega GitHub. Repositórios: [API](https://github.com/jon-balta/clara-backend) · [Frontend](https://github.com/jon-balta/clara-frontend).
-
-Referência didática: aula 3 de Desenvolvimento Full Stack Básico (Flask, API separada e frontend com fetch). Domínio, validações, banco, contrato e interface do Clara foram desenvolvidos para este MVP. Construção com apoio de IA; o autor deve compreender o fluxo antes da apresentação.
-
-
-## Arquitetura e decisões
-
-O cliente apresenta dados e envia HTTP/JSON; somente a API acessa SQLite. Cada requisição envia seus dados e identificador, sem depender de sessão anterior. Guardar registros no banco não significa guardar estado de navegação.
-
-A interface usa recursos identificados por ID, métodos HTTP e status coerentes. As cinco operações de negócio compartilham dois padrões de URL. `domain.py` concentra regras, `openapi.py` descreve o contrato e `app.py` coordena HTTP e persistência. Essa separação é proporcional ao tamanho do MVP; extrair SQL para um módulo próprio é uma evolução possível.
-
-O navegador carrega e executa JavaScript distribuído com o HTML local. A arquitetura preserva a abertura por arquivo exigida na disciplina; não há servidor de frontend nem dependência de CDN. Esses elementos ilustram os conceitos estudados, sem afirmar implementação integral de todas as restrições REST.
